@@ -1,0 +1,76 @@
+# Light Client - 1.21.11 Fabric Kurulum Rehberi
+
+## Gereksinimler
+- Java 21 veya üzeri
+- Minecraft 1.21.1
+- Fabric Loader 0.16.9+
+
+## Kurulum Adımları
+
+### 1. Fabric Yükle
+- https://fabricmc.net/ adresine git
+- "Download Installer" seçerek indir
+- Installer'ı çalıştır
+- Minecraft path'ini seç ve "Install" tıkla
+- Minecraft Launcher'dan "Fabric" profile'ını seç
+
+### 2. Mod'u Derle
+```bash
+cd fabric-client
+./gradlew build
+```
+
+Windows için:
+```bash
+cd fabric-client
+gradlew.bat build
+```
+
+### 3. JAR Dosyasını Kopyala
+- Derlemeden sonra şu dosya oluşacak:
+  `build/libs/lightclient-1.0.0.jar`
+
+- Minecraft mods klasörüne kopyala:
+  - Windows: `%APPDATA%/.minecraft/mods/`
+  - macOS: `~/Library/Application Support/minecraft/mods/`
+  - Linux: `~/.minecraft/mods/`
+
+### 4. Minecraft'ı Başlat
+- Fabric profile'ı seç
+- Play tıkla
+- Oyuna gir
+
+## Kontroller
+
+**Menüyü Aç:** `]` (Sağ köşeli parantez)
+
+## Modüller
+
+- **Xray**: Cevherleri görmek
+- **ESP**: Oyuncuları görmek
+- **Speed**: Hafif hız artırma (%5-15)
+- **Inventory**: Eşya yönetimi
+
+## ÖNEMLİ UYARI
+
+⚠️ Bu mod hafif özelliklere sahiptir ama yine de:
+- Hile serbest sunucularda kullan
+- Antiicheat olan sunucularda kullanma
+- Ban riski her zaman vardır
+- Sorumluluğu sen alıyorsun
+
+## Sorun Giderme
+
+Eğer mod yüklenmemişse:
+1. Java 21+ yüklü mü kontrol et
+2. fabric.mod.json dosyası doğru mu kontrol et
+3. Logs'a bak: `.minecraft/logs/latest.log`
+
+## Geliştirme
+
+Kodu değiştirmek istersen:
+```bash
+./gradlew idea
+```
+
+IntelliJ IDEA'da aç ve düzenle.

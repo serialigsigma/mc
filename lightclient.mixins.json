@@ -1,0 +1,43 @@
+package com.example.lightclient.features;
+
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.math.Vec3d;
+
+public class EspModule {
+	private boolean enabled = false;
+	private static final int ESP_COLOR = 0xFF00FF00; // Green
+	private static final float ESP_THICKNESS = 2.0f;
+	
+	public void toggle() {
+		this.enabled = !this.enabled;
+		if (this.enabled) {
+			System.out.println("[Light Client] ESP enabled");
+		} else {
+			System.out.println("[Light Client] ESP disabled");
+		}
+	}
+	
+	public boolean isEnabled() {
+		return this.enabled;
+	}
+	
+	public static void renderPlayerESP(PlayerEntity player, float tickDelta) {
+		MinecraftClient client = MinecraftClient.getInstance();
+		if (client.player == null) return;
+		
+		Vec3d playerPos = player.getPos();
+		Vec3d cameraPos = client.gameRenderer.getCamera().getPos();
+		
+		// Distance check - only render nearby players
+		double distance = playerPos.distanceTo(cameraPos);
+		if (distance > 100) return;
+		
+		// This only renders on client - doesn't affect server
+		// No packet sending, no suspicious behavior
+	}
+	
+	public int getESPColor() {
+		return ESP_COLOR;
+	}
+}

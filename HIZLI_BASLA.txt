@@ -1,0 +1,46 @@
+# GitHub'da Otomatik JAR Oluştur
+
+## Adım 1: GitHub Hesabı Oluştur (Yoksa)
+- https://github.com/signup
+- Hesap oluştur (ücretsiz)
+
+## Adım 2: Kodu GitHub'a Yükle
+1. GitHub'da yeni repo oluştur:
+   - https://github.com/new
+   - Repository name: `light-client`
+   - Public seç
+   - "Create repository" tıkla
+
+2. Bilgisayarında Git kur (yoksa):
+   - https://git-scm.com/download/win (Windows)
+
+3. Komut prompt (CMD) aç ve:
+```bash
+cd [fabric-client-klasörünün yolu]
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/[KULLANICIADIN]/light-client.git
+git push -u origin main
+```
+
+## Adım 3: GitHub Actions Otomatik Derler
+- Repository'ye git
+- "Actions" sekmesine tıkla
+- Build otomatik başlar!
+- Tamamlandığında "Artifacts" kısmından JAR indir
+
+## Adım 4: JAR'ı Minecraft'a Koy
+```
+%APPDATA%\.minecraft\mods\
+```
+klasörüne kopyala
+
+## Seçenek: Hiç Git Olmadan
+1. GitHub'da "Upload files" seçeneğini kullan
+2. Tüm fabric-client klasörünü yükle
+3. GitHub Actions otomatik derler!
+
+## Hızlı İnternet Çözümü:
+Eğer internet sorunu varsa, sana Python ile local derleyici yazabilirim!
