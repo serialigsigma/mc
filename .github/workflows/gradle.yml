@@ -10,22 +10,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Kodları çek
+      - name: Repo çek
         uses: actions/checkout@v3
 
       - name: Java kur
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'
-          java-version: '17'
+          distribution: temurin
+          java-version: 17
 
-      - name: Build (Gradle)
-        run: |
-          chmod +x gradlew
-          ./gradlew build
+      - name: Gradle izin fix
+        run: chmod +x gradlew
 
-      - name: JAR upload
+      - name: Build al
+        run: ./gradlew build --no-daemon
+
+      - name: Jar upload
         uses: actions/upload-artifact@v3
         with:
-          name: minecraft-client
+          name: client-jar
           path: build/libs/*.jar
